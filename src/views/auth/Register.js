@@ -12,7 +12,8 @@ class Register extends Component
     state = {
         name: '',
         email: '',
-        password: ''
+        password: '',
+        password_confirmation: '',
     }
 
     handleInput = (e) => {
@@ -25,17 +26,26 @@ class Register extends Component
     register = async (e) => {
         e.preventDefault();
 
-        const res = await axios.post('http://127.0.0.1:8000/api/register', this.state);
-        console.log(res);
-        if(res.data.status === 200)
-        {
-            console.log(res.data.message);
-            this.setState({
-                name: '',
-                email: '',
-                passowrd: ''
-            });
-        }
+        const res = await axios.post('http://127.0.0.1:8000/api/register', {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+            password_confirmation: this.state.password_confirmation
+        })
+        .then(res => {
+            console.log(res);
+        });
+        // console.log(res);
+        // if(res.data.status === 200)
+        // {
+        //     console.log(res.data.message);
+        //     this.setState({
+        //         name: this.state.name,
+        //         email: this.state.email,
+        //         passowrd: this.state.password,
+        //         password_confirmation: this.state.password_confirmation
+        //     });
+        // }
     }
 
     render() {
@@ -49,18 +59,23 @@ class Register extends Component
                             <hr />
                         </div>
                         <div className="card-body">
-                            <form onSubmit={this.register}>
+                            <form method="POST" onSubmit={this.register}>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                             <div className="form-group mb-3">
                                     <label>Imię i Nazwisko:</label>
-                                    <input type="name" name="name" onChange={this.handleInput} value={this.state.name} className="form-control" />
+                                    <input type="name" name="name" onChange={this.handleInput} value={this.state.name} className="form-control" required/>
                                 </div>
                                 <div className="form-group mb-3">
                                     <label>E-mail:</label>
-                                    <input type="email" name="email" onChange={this.handleInput} value={this.state.email} className="form-control" />
+                                    <input type="email" name="email" onChange={this.handleInput} value={this.state.email} className="form-control" required/>
                                 </div>
                                 <div className="form-group mb-3">
                                     <label>Hasło:</label>
-                                    <input type="password" name="password" onChange={this.handleInput} value={this.state.password} className="form-control" />
+                                    <input type="password" name="password" onChange={this.handleInput} value={this.state.password} className="form-control" required/>
+                                </div>
+                                <div className="form-group mb-3">
+                                    <label>Powtórz hasło:</label>
+                                    <input type="password" name="password_confirmation" onChange={this.handleInput} value={this.state.password_confirmation} className="form-control" required/>
                                 </div>
                                 <hr />
                                 <div className="row">
