@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Component } from "react";
-
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
 
@@ -47,7 +47,14 @@ class Login extends Component {
                                         <input type="password" name="password" onChange={this.handleInput} value={this.state.password} className="form-control" />
                                     </div>
                                     <hr />
-                                    <button type="submit" className="btn btn-primary">Zaloguj</button>
+                                    <div className="row">
+                                        <div className="col-sm">
+                                            <Link to="/register" className="link-primary">Zarejestruj się</Link>
+                                        </div>
+                                        <div className="col-sm d-flex justify-content-end">
+                                            <button type="submit" className="btn btn-primary">Zaloguj</button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
