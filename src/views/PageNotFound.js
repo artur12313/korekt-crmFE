@@ -1,6 +1,6 @@
-function Dashboard() {
+function PageNotFound() {
     return (
-        <h1>Dashboard!</h1>
+        <h1>Page not found!</h1>
     );
 }
 // class Dashboard extends Component
@@ -12,4 +12,4 @@ function Dashboard() {
 //     }
 // }
 
-export default Dashboard;
+export default PageNotFound;
