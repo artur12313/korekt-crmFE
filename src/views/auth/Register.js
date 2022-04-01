@@ -26,7 +26,7 @@ class Register extends Component
     register = async (e) => {
         e.preventDefault();
 
-        const res = await axios.post('http://127.0.0.1:8000/api/register', {
+         await axios.post('http://127.0.0.1:8000/api/register', {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,

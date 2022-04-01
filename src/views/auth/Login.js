@@ -1,13 +1,22 @@
 import axios from "axios";
 import { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
+import Dashboard from "../Dashboard";
 
 class Login extends Component {
-
-    state = {
-        email: '',
-        password: ''
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+            isLoading: false,
+            errMsgEmail: '',
+            errMsgPwd: '',
+            errMsg: ''
+    
+        };
     }
+    
 
     handleInput = (e) => {
         this.setState({
@@ -18,15 +27,54 @@ class Login extends Component {
 
     login = async (e) => {
         e.preventDefault();
+        this.setState({isLoading: true});
 
-        const res = await axios.post('http://127.0.0.1:8000/api/login', this.state);
-        if(res.data.status === 200)
-        {
-            console.log(res.data.message);
-        }
+        await axios.post('http://127.0.0.1:8000/api/login', {
+            email: this.state.email,
+            password: this.state.password,
+        }).then((response) => {
+            this.setState({isLoading: false });
+            if(response.data.status === 200)
+            {
+                localStorage.setItem("isLoggedIn", true);
+                localStorage.setItem("userData", JSON.stringify(response.data.data));
+                this.setState({
+                    msg: response.data.message,
+                    redirect: true,
+                });
+            }
+            if (response.data.status === "failed" && response.data.success === undefined)
+            {
+                this.setState({
+                    errMsgEmail: response.data.validation_error.email,
+                    errMsgPwd: response.data.validation_error.password,
+                });
+                setTimeout(() => {
+                    this.setState({errMsgEmail: '', errMsgPwd: ''});
+                }, 2000);
+            } else if (response.data.status === 'failed' && response.data.success === false)
+            {
+                this.setState({errMsg: response.data.message,});
+                setTimeout(() => {
+                    this.setState({errMsg: ''});
+                }, 2000);
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     render() {
+        if (this.state.redirect)
+        {
+            return <Routes><Route to='/dashboard' element={<Dashboard />} /></Routes>;
+        }
+        const login = localStorage.getItem('isLoggedIn');
+        if (login)
+        {
+            return <Routes><Route to='/dashboard' element={<Dashboard />}/></Routes>;
+        }
+        const isLoading = this.state.isLoading;
         return (
             <div className="container mt-2">
                 <div className="row">
@@ -35,6 +83,7 @@ class Login extends Component {
                             <div className="card-header">
                                 <h4>Witaj!</h4>
                                 <hr />
+                                <span className="text-danger">{this.state.errMsg}</span>
                             </div>
                             <div className="card-body">
                                 <form onSubmit={this.login}>
@@ -52,7 +101,13 @@ class Login extends Component {
                                             <Link to="/register" className="link-primary">Zarejestruj się</Link>
                                         </div>
                                         <div className="col-sm d-flex justify-content-end">
-                                            <button type="submit" className="btn btn-primary">Zaloguj</button>
+                                            <button type="submit" className="btn btn-primary">Zaloguj {isLoading ? (
+                                                <span className="spinner-border spinner-border-sm ml-5"
+                                                role="status"
+                                                aria-hidden="true"></span>
+                                            ) : (
+                                                <span></span>
+                                            )}</button>
                                         </div>
                                     </div>
                                 </form>
