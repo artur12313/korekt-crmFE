@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Component } from "react";
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Navigate} from 'react-router-dom';
 import Dashboard from "../Dashboard";
 
 class Login extends Component {
@@ -67,12 +67,12 @@ class Login extends Component {
     render() {
         if (this.state.redirect)
         {
-            return <Routes><Route to='/dashboard' element={<Dashboard />} /></Routes>;
+            return <Navigate to='/dashboard' />;
         }
         const login = localStorage.getItem('isLoggedIn');
         if (login)
         {
-            return <Routes><Route to='/dashboard' element={<Dashboard />}/></Routes>;
+            return <Navigate to='/dashboard'/>;
         }
         const isLoading = this.state.isLoading;
         return (
