@@ -1,6 +1,8 @@
 import axios from "axios";
 import { Component } from "react";
 import { Link, Navigate} from 'react-router-dom';
+import '../../style.scss';
+import logo from '../../images/korekt-logo.png';
 
 class Login extends Component {
     constructor(props) {
@@ -74,16 +76,23 @@ class Login extends Component {
             return <Navigate to='/dashboard'/>;
         }
         const isLoading = this.state.isLoading;
+
+        // const alertContent = this.state.errMsg;
+        // let alert;
+
+        // if(!alertContent){
+        //     return alert = <div class="alert alert-danger" role="alert">{alertContent} asddsa</div>;
+        // }
+
         return (
-            <div className="container mt-2">
-                <div className="row">
-                    <div className="col-md-6">
+            <div className="background authPanel">
+            <div className="container authContainer">
                         <div className="card">
-                            <div className="card-header">
-                                <h4>Witaj!</h4>
-                                <hr />
-                                <span className="text-danger">{this.state.errMsg}</span>
+                            <div className="card-header ">
+                                <img src={logo} alt="Korekt s.c." className="img" height="54px" />
                             </div>
+                            {/* {alert} */}
+                            <div class="alert alert-danger" role="alert">{this.state.errMsg}</div>
                             <div className="card-body">
                                 <form onSubmit={this.login}>
                                     <div className="form-group mb-3">
@@ -113,8 +122,59 @@ class Login extends Component {
                             </div>
                         </div>
                     </div>
+                    <div class="stars">
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    </div>
                 </div>
-            </div>
             );
     }     
 }

@@ -50,9 +50,8 @@ class Register extends Component
 
     render() {
         return(
-            <div className="container mt-2">
-            <div className="row">
-                <div className="col-md-6">
+            <div className="background authPanel">
+            <div className="container authContainer">
                     <div className="card">
                         <div className="card-header">
                             <h4>Zarejestruj się!</h4>
@@ -91,7 +90,6 @@ class Register extends Component
                     </div>
                 </div>
             </div>
-        </div>
         );
     }
 }
