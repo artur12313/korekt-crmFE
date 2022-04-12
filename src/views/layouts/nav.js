@@ -1,6 +1,7 @@
 import { Component } from "react";
 import logo from '../../images/logo192.png';
 import {Link, Navigate} from 'react-router-dom';
+
 class Nav extends Component
 {
     state = {
@@ -14,6 +15,7 @@ class Nav extends Component
         });
       };
     render() {
+        const user = JSON.parse(localStorage.getItem("userData"));
         const { navigate } = this.state;
         if (navigate) {
           return <Navigate to="/" push={true} />;
@@ -61,11 +63,12 @@ class Nav extends Component
                         <div className="dropdown text-end">
                         <Link to="#" className="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src={logo} alt="mdo" width="32" height="32" className="rounded-circle" />
+                            {user.name}
                         </Link>
                         <ul className="dropdown-menu text-small" aria-labelledby="dropdownUser1" data-popper-placement="bottom-start">
                             <li><Link className="dropdown-item" to="#">New project...</Link></li>
                             <li><Link className="dropdown-item" to="#">Settings</Link></li>
-                            <li><Link className="dropdown-item" to="#">Profile</Link></li>
+                            <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
                             <li><hr className="dropdown-divider" /></li>
                             <li><Link className="dropdown-item" to="#" onClick={this.onLogoutHandler}>Wyloguj</Link></li>
                         </ul>
