@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Stars from '../../components/Stars';
 // function Register() {
 //     return (
 //         <h1>Register Page!</h1>
@@ -88,6 +89,7 @@ class Register extends Component
                             </form>
                         </div>
                     </div>
+                    <Stars />
                 </div>
             </div>
         );
