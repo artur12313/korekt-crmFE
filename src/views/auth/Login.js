@@ -69,12 +69,12 @@ class Login extends Component {
     render() {
         if (this.state.redirect)
         {
-            return <Navigate to='/dashboard' />;
+            return <Navigate to='/' />;
         }
         const login = localStorage.getItem('isLoggedIn');
         if (login)
         {
-            return <Navigate to='/dashboard'/>;
+            return <Navigate to='/'/>;
         }
         const isLoading = this.state.isLoading;
 
@@ -82,18 +82,17 @@ class Login extends Component {
         // let alert;
 
         // if(!alertContent){
-        //     return alert = <div class="alert alert-danger" role="alert">{alertContent} asddsa</div>;
+        //     return alert = <div className="alert alert-danger" role="alert">{alertContent} asddsa</div>;
         // }
-
         return (
             <div className="background authPanel">
             <div className="container authContainer">
                         <div className="card">
-                            <div className="card-header ">
+                            <div className="card-header">
                                 <img src={logo} alt="Korekt s.c." className="img" height="54px" />
                             </div>
                             {/* {alert} */}
-                            <div class="alert alert-danger" role="alert">{this.state.errMsg}</div>
+                            <div className="alert alert-danger" role="alert">{this.state.errMsg}</div>
                             <div className="card-body">
                                 <form onSubmit={this.login}>
                                     <div className="form-group mb-3">

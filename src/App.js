@@ -8,15 +8,19 @@ import Dashboard from './views/Dashboard';
 import Register from './views/auth/Register';
 import Login from './views/auth/Login';
 import PageNotFound from './views/PageNotFound';
+import ProtectedRoutes from './ProtectedRoutes';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/dashboard" element={<Dashboard />}/>
-        <Route path="*" element={<PageNotFound />}/>
         <Route path="/register" element={<Register />}/>
-        <Route path="/" element={<Login />}/>
+        <Route path="/login" element={<Login />}/>
+        <Route path="*" element={<PageNotFound />}/>
+        <Route path="/" element={<ProtectedRoutes />}>
+          <Route path="/" element={<Dashboard />}/>
+          
+        </Route>
       </Routes>
     </BrowserRouter>
   );

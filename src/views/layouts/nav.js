@@ -19,7 +19,7 @@ class Nav extends Component
         const user = JSON.parse(localStorage.getItem("userData"));
         const { navigate } = this.state;
         if (navigate) {
-          return <Navigate to="/" push={true} />;
+          return <Navigate to="/login" push={true} />;
         }
         return (
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">

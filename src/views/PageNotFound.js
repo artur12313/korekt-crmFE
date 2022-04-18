@@ -14,7 +14,7 @@ class PageNotFound extends Component
                     <div>
                     <h1 className="text-center">404</h1>
                     <p>Strona której szukasz nie istnieje!</p>
-                    <Link className="btn btn-primary d-flex text-center  justify-content-center" to="/dashboard">
+                    <Link className="btn btn-primary d-flex text-center  justify-content-center" to="/">
                         Powrót do strony głównej
                     </Link>
                     </div>
