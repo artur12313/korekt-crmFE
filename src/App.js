@@ -1,6 +1,7 @@
 import React from 'react';
 // import Routes from './Routes';
 import './App.css';
+import './themify-icons.css';
 // import bootstrap from 'bootstrap';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Dashboard from './views/Dashboard';

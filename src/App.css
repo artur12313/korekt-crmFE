@@ -36,7 +36,7 @@
 
   --heading-color: #454545;
   --subheading-color: #7D7D7D;
-  --text-color: #454545;
+  --text-color: #72777a;
 
   --transition-all: all .25s ease;
 
@@ -128,4 +128,71 @@ img{
 
 .authContainer .card-body .form-group input {
   background-color: rgba(255,255,255, .7) !important;
+}
+
+.nav-logo {
+  width: 45px;
+  height: 45px;
+}
+
+.sidebar-sticky a {
+  display: flex;
+  align-items: center;
+  color: var(--white);
+}
+
+.sidebar-sticky a:hover {
+  color: var(--gray);
+}
+
+.sidebar-sticky a .ti-home {
+  color: #2196f3;
+}
+
+.sidebar-sticky a .ti-email {
+  color:#795548;
+}
+
+.sidebar-sticky a .ti-calendar {
+  color: #ff5722;
+}
+
+.sidebar-sticky a .ti-comment-alt {
+  color: #673ab7;
+}
+
+.sidebar-sticky a .ti-folder {
+  color: #ff9800;
+}
+
+.sidebar-sticky a .ti-file {
+  color: #2196f3;
+}
+
+.sidebar-sticky a .ti-user {
+  color: #009688;
+}
+
+.sidebar-sticky a .ti-bag {
+  color: #9c27b0;
+}
+
+.sidebar-sticky a .ti-share-alt {
+  color: #ff9800;
+}
+
+.sidebar-sticky a .ti-archive {
+  color: #e91e63;
+}
+
+.sidebar-sticky a > i {
+  margin-right: 1rem;
+}
+
+.error-page {
+  height: 100vh;
+}
+
+.sidebar {
+  height: calc(100vh - 61px);
 }
