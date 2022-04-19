@@ -11,13 +11,11 @@ import Sidebar from './views/layouts/Sidebar';
             <div>
                 <Nav />
             </div>
-            <div className="container-fluid">
-            <div className="row">
+            <div className="row d-flex mx-0">
                 <Sidebar />
-                <div className="col-xl-9 col-sm-12 col-md-9 text-dark text-center align-self-center">
+                <div className="col-auto d-flex">
                     <Outlet />
                 </div> 
-            </div>
             </div>
         </div>
         

@@ -5,7 +5,7 @@ class ProfileInformation extends Component
 {
     render(){
         return(
-            <div className="profileInformation d-flex">
+            <div className="profileInformation d-flex mt-3 justify-content-between">
                 <div>
                     <h3>Informacje o profilu</h3>
                     <p>Aktualizuj swoje informacje profilowe oraz adres e-mail.</p>
@@ -13,7 +13,7 @@ class ProfileInformation extends Component
                 <div>
                     <form>
                         <p>Zdjęcie</p>
-                        <img src={logo} alt="Avatar" />
+                        <img src={logo} alt="Avatar" width="64px" height="64px" />
                         <button className="btn btn-light text-dark">Wybierz nowe zdjęcie</button>
                         <label>Nazwa:</label>
                         <input type="text" className="form-control"></input>
