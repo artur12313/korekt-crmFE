@@ -22,21 +22,18 @@ class Nav extends Component
           return <Navigate to="/login" push={true} />;
         }
         return (
-            <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-                <div className="container row d-flex">
+            <nav className="navbar navbar-expand-sm navbar-dark bg-dark d-flex justify-content-between">
+                    {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button> */}
+                <div className="container-fluid">
                     <div className="col-auto p-0">
                         <Link to="/dashboard" className="link-light text-decoration-none">
                             <img src={logo180} alt="logo" className="nav-logo mx-2"/> Korekt s.c.
                         </Link>
                     </div>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
-                        <ul className="navbar-nav mr-auto">
-                            
-                        </ul>
-                        <ul className="navbar-nav ml-auto">
+                    <div className="collapse navbar-collapse d-flex justify-content-end userMenu" id="navbarSupportedContent">
+                        <ul className="navbar-nav">
                         <div className="dropdown text-end">
                         <Link to="#" className="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src={logo} alt="mdo" width="32" height="32" className="rounded-circle mx-2" />

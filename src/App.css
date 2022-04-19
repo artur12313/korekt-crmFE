@@ -196,3 +196,7 @@ img{
 .sidebar {
   height: calc(100vh - 61px);
 }
+
+.userMenu {
+  margin-right: 4rem;
+}

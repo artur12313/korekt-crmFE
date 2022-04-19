@@ -1,7 +1,7 @@
 import {Component} from 'react';
-import Nav from './layouts/nav';
+// import Nav from './layouts/nav';
 // import {Link} from 'react-router-dom';
-import Sidebar from '../components/Sidebar';
+// import Sidebar from './layouts/Sidebar';
 
 class Dashboard extends Component
 {
@@ -9,12 +9,12 @@ class Dashboard extends Component
         const user = JSON.parse(localStorage.getItem("userData"));
         return (
             <div>
-                <div>
+                {/* <div>
                     <Nav />
-                </div>
+                </div> */}
             <div className="container-fluid">
             <div className="row">
-              <Sidebar />
+              {/* <Sidebar /> */}
               <div className="col-xl-9 col-sm-12 col-md-9 text-dark text-center align-self-center">
                 <h5> Welcome, {user.name} </h5> You have Logged in
                 successfully.

@@ -9,7 +9,7 @@ class Sidebar extends Component
             <div className="sidebar-sticky">
               <ul className="nav flex-column">
                 <li className="nav-item">
-                  <Link className="nav-link active" to="#">
+                  <Link className="nav-link active" to="/">
                     <i className="ti-home c-blue-500"></i>Strona Główna
                   </Link>
                 </li>
