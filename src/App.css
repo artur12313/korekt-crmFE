@@ -27,6 +27,7 @@
   --black: #000;
   --gray: #454545;
   --grayer: #2C2C2C;
+  --red: #dc3545;
 
   --main-color: #199AA6;
   --second-color: #E57A8D;
@@ -199,4 +200,78 @@ img{
 
 .userMenu {
   margin-right: 4rem;
+}
+
+.bg {
+  background-color: #f9fafb;
+  width: calc(100vw - 250px) !important;
+  height: calc(100vh - 61px) !important;
+}
+
+.counter {
+  position: absolute;
+  top: -0.5rem;
+  left: .7rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  background: var(--red);
+  font-size: .7rem;
+  font-weight: 600;
+}
+
+.counter.mail {
+  left: 1.09rem;
+}
+
+.icoWithCounter {
+  position: relative;
+}
+
+.icoWithCounter a:hover {
+  color: #ff9800;
+}
+
+.icoWithCounter .dropdown-toggle::after {
+  content: none;
+}
+
+.notificationsMenu{
+  min-width: 320px !important;
+  left: -12rem !important;
+}
+
+.text-color {
+  color: var(--text-color) !important;
+}
+
+.font-semibold {
+  font-weight: var(--font-semibold) !important;
+}
+
+.black {
+  color: var(--black);
+}
+
+.notification:hover {
+  background-color: whitesmoke;
+}
+
+.notification .content {
+  font-size: var(--text-xs);
+  flex-direction: column;
+  display: flex;
+}
+
+.text-sm {
+  font-size: var(--text-sm) !important;
+}
+
+.emailsMenu {
+  min-width: 320px !important;
+  left: -12rem !important;
 }

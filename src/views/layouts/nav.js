@@ -2,6 +2,7 @@ import { Component } from "react";
 import logo from '../../images/logo192.png';
 import logo180 from '../../images/logo180x180.png'
 import {Link, Navigate} from 'react-router-dom';
+import Notifications from "../../components/Notifications";
 
 class Nav extends Component
 {
@@ -28,15 +29,16 @@ class Nav extends Component
                     </button> */}
                 <div className="container-fluid">
                     <div className="col-auto p-0">
-                        <Link to="/dashboard" className="link-light text-decoration-none">
+                        <Link to="/" className="link-light text-decoration-none">
                             <img src={logo180} alt="logo" className="nav-logo mx-2"/> Korekt s.c.
                         </Link>
                     </div>
                     <div className="collapse navbar-collapse d-flex justify-content-end userMenu" id="navbarSupportedContent">
                         <ul className="navbar-nav">
-                        <div className="dropdown text-end">
+                        <div className="dropdown text-end d-flex gap-5 align-items-center">
+                            <Notifications />
                         <Link to="#" className="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src={logo} alt="mdo" width="32" height="32" className="rounded-circle mx-2" />
+                            <img src={logo} alt="avatar" width="32" height="32" className="rounded-circle mx-2" />
                             {user.name}
                         </Link>
                         <ul className="dropdown-menu text-small" aria-labelledby="dropdownUser1" data-popper-placement="bottom-start">

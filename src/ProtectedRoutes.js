@@ -13,7 +13,7 @@ import Sidebar from './views/layouts/Sidebar';
             </div>
             <div className="row d-flex mx-0">
                 <Sidebar />
-                <div className="col-auto d-flex">
+                <div className="col-auto d-flex bg">
                     <Outlet />
                 </div> 
             </div>
