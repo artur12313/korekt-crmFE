@@ -8,12 +8,12 @@ import Sidebar from './views/layouts/Sidebar';
        const auth =  localStorage.getItem('isLoggedIn');
         return auth ? 
         <div>
-            <div>
+            <div className="div-navbar">
                 <Nav />
             </div>
-            <div className="row d-flex mx-0">
+            <div className="d-flex">
                 <Sidebar />
-                <div className="col-auto d-flex bg">
+                <div className="col-auto bg page-content">
                     <Outlet />
                 </div> 
             </div>

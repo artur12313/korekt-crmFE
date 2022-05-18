@@ -14,7 +14,7 @@ class Notifications extends Component
                         <div class="counter bell text-light">3</div>
                     </Link>
                     <ul className="dropdown-menu text-small notificationsMenu" aria-labelledby="dropdownUser1" data-popper-placement="bottom-start">
-                        <li className="p-2"><i className="ti-bell text-dark mx-2"></i><span className="font-semibold black">Powiadomienia</span></li>
+                        <li className="p-2 d-flex align-items-center"><i className="ti-bell text-dark mx-2"></i><span className="font-semibold black">Powiadomienia</span></li>
                         <li><hr className="dropdown-divider" /></li>
                         <li className="d-flex notification p-2">
                             <img src={logo} alt="avatar" width="48px" height="48px" className="mx-2"/>
@@ -33,7 +33,7 @@ class Notifications extends Component
                         <div className="counter mail text-light">67</div>
                     </Link>
                     <ul className="dropdown-menu text-small emailsMenu" aria-labelledby="dropdownUser1" data-popper-placement="bottom-start">
-                        <li className="p-2"><i className="ti-email px-2"></i><span className="black font-semibold">Najnowsze wiadomości</span></li>
+                        <li className="p-2 d-flex align-items-center"><i className="ti-email px-2"></i><span className="black font-semibold">Najnowsze wiadomości</span></li>
                         <li><hr className="dropdown-divider" /></li>
                         <li className="d-flex notification p-2 align-items-center">
                             <div className="mx-2">
