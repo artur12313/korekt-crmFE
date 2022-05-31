@@ -6,11 +6,12 @@ class PasswordUpdate extends Component
     constructor(props){
         super(props);
         this.state = {
-            currentPassword: '',
+            password: '',
             newPassword: '',
             confirmNewPassword: '',
             isLoading: false,
             msg: '',
+            msgErr: '',
             userId: ''
         };
     }
@@ -26,39 +27,70 @@ class PasswordUpdate extends Component
         e.preventDefault();
         this.setState({isLoading: true});
         const user = JSON.parse(localStorage.getItem("userData"));
+        if(this.state.newPassword === this.state.confirmNewPassword)
+        {
+            await axios.post('http://127.0.0.1:8000/api/passwordUpdate', {
+                password: this.state.password,
+                newPassword: this.state.newPassword,
+                confirmNewPassword: this.state.confirmNewPassword,
+                userId: user.id
+            }).then((response) => {
+                this.setState({isLoading: true});
+                if(response.data.status === 200)
+                {
+                    this.setState({
+                        msg: response.data.message,
+                        isLoading: false
+                    });
+                    setTimeout(() => {
+                        this.setState({msg: ''});
+                    }, 3000);
+                }
+                if(response.data.status === "failed" && response.data.success === undefined)
+                {
+                    this.setState({
+                        msgErr: response.data.message,
+                    });
+                    setTimeout(() => {
+                        this.setState({msgErr: ''});
+                    }, 2000);
+                }
+                if(response.data.status === 500)
+                {
+                    this.setState({
+                        msgErr: 'Kod błędu: 500. Proszę skontaktować się z administratorem. Twoje hasło nie zostało zaktualizowane.',
+                    });
+                }
+                else if (response.data.status === 'failed' && response.data.success === false)
+                {
+                    this.setState({msgErr: response.data.message,});
+                    setTimeout(() => {
+                        this.setState({msgErr: ''});
+                    }, 2000);
+                }
+            }).catch((error) => {
+                console.log(error);
+                this.setState({msgErr: error.response.status});
+                setTimeout(() => {
+                    this.setState({isLoading: false});
+                }, 1000);
+                setTimeout(() => {
+                    this.setState({msgErr: ''});
+                }, 6000);
+            })
+        } else 
+        {
+            this.setState({
+                msgErr: 'Nowe hasła nie są takie same!'
+            });
+            setTimeout(() => {
+                this.setState({isLoading: false});
+            }, 500);
+            setTimeout(() => {
+                this.setState({msgErr: ''});
+            }, 2000);
+        }
         
-        await axios.post('http://127.0.0.1:8000/api/password-update', {
-            currentPassword: this.state.currentPassword,
-            newPassword: this.state.newPassword,
-            confirmNewPassword: this.state.confirmNewPassword,
-            userId: user.id
-        }).then((response) => {
-            this.setState({isLoading: true});
-            if(response.data.status === 200)
-            {
-                this.setState({
-                    msg: response.data.message,
-                });
-            }
-            if(response.data.status === "failed" && response.data.success === undefined)
-            {
-                this.setState({
-                    msg: response.data.message,
-                });
-                setTimeout(() => {
-                    this.setState({msg: ''});
-                }, 2000);
-            }
-            else if (response.data.status === 'failed' && response.data.success === false)
-            {
-                this.setState({msg: response.data.message,});
-                setTimeout(() => {
-                    this.setState({msg: ''});
-                }, 2000);
-            }
-        }).catch((error) => {
-            console.log(error);
-        })
     }
     render(){
         const isLoading = this.state.isLoading;
@@ -67,13 +99,22 @@ class PasswordUpdate extends Component
                 <div className="col-md-7 p-2 info">
                     <h3>Aktualizacja Hasła</h3>
                     <p>Upewnij się, że Twoje konto używa długiego, losowego hasła, aby zachować bezpieczeństwo.</p>
+                    {this.state.msgErr ? 
+                    (<div className="alert alert-danger">{this.state.msgErr}</div>
+                    ) : (
+                    <div></div>)}
+                    {this.state.msg ?
+                    (<div className="alert alert-success">{this.state.msg}</div>
+                    ) : (
+                        <div></div>
+                    )}
                 </div>
                 <div className="col-md-9 box">
                     <form onSubmit={this.updatePassword}>
                         <div className="form-body p-4">
                             <div className="form-group col-md-6 mb-4">
                                 <label>Aktualne hasło:</label>
-                                <input type="password" className="form-control" name="currentPassword" onChange={this.handleInput} value={this.state.currentPassword} required></input>
+                                <input type="password" className="form-control" name="password" onChange={this.handleInput} value={this.state.password} required></input>
                             </div>
                             <div className="form-group col-md-6 mb-4">
                                 <label>Nowe hasło:</label>
