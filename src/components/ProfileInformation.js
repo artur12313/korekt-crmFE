@@ -14,10 +14,10 @@ class ProfileInformation extends Component
                 <div className="col-md-9 box">
                     <form>
                         <div className="form-body p-4">
-                            <div className="d-flex flex-column col-4 mb-4">
+                            <div className="d-flex flex-column col-5 mb-4">
                                 <p>Zdjęcie</p>
                                 <img src={logo} alt="Avatar" width="64px" height="64px" className="icoMini" />
-                                <button className="btn btn-light text-dark mt-2" id="selectImgAvatar">Wybierz zdjęcie</button>
+                                <input type="file" onChange={this.onFileChange} accept="image/*" className="mt-3"/>
                             </div>
                             <div className="form-group col-md-6 mb-4">
                             <label>Nazwa:</label>
