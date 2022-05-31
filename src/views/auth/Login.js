@@ -92,7 +92,7 @@ class Login extends Component {
                                 <img src={logo} alt="Korekt s.c." className="img" height="54px" />
                             </div>
                             {/* {alert} */}
-                            <div className="alert alert-danger" role="alert">{this.state.errMsg}</div>
+                            {this.state.errMsg ? (<div className="alert alert-danger" role="alert">{this.state.errMsg}</div>) : (<div></div>)}
                             <div className="card-body">
                                 <form onSubmit={this.login}>
                                     <div className="form-group mb-3">
