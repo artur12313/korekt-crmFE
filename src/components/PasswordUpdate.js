@@ -53,7 +53,7 @@ class PasswordUpdate extends Component
                     });
                     setTimeout(() => {
                         this.setState({msgErr: ''});
-                    }, 2000);
+                    }, 6000);
                 }
                 if(response.data.status === 500)
                 {
@@ -69,7 +69,7 @@ class PasswordUpdate extends Component
                     });
                     setTimeout(() => {
                         this.setState({msgErr: ''});
-                    }, 2000);
+                    }, 6000);
                 }
             }).catch((error) => {
                 console.log(error);
