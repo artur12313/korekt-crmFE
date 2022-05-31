@@ -11,7 +11,7 @@ class Notifications extends Component
                 <div className="icoWithCounter dropdown">
                     <Link to="#" className="d-block link-light text-decoration-none dropdown-toggle no-after" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <i className="ti-bell"></i>
-                        <div class="counter bell text-light">3</div>
+                        <div className="counter bell text-light">3</div>
                     </Link>
                     <ul className="dropdown-menu text-small notificationsMenu" aria-labelledby="dropdownUser1" data-popper-placement="bottom-start">
                         <li className="p-2 d-flex align-items-center"><i className="ti-bell text-dark mx-2"></i><span className="font-semibold black">Powiadomienia</span></li>
