@@ -63,7 +63,10 @@ class PasswordUpdate extends Component
                 }
                 else if (response.data.status === 'failed' && response.data.success === false)
                 {
-                    this.setState({msgErr: response.data.message,});
+                    this.setState({
+                        msgErr: response.data.message,
+                        isLoading: false
+                    });
                     setTimeout(() => {
                         this.setState({msgErr: ''});
                     }, 2000);
