@@ -212,8 +212,8 @@ img{
 }
 
 .bg {
-  background-color: transparent;
-  /* background-color: #f9fafb; */
+  /* background-color: transparent; */
+  background-color: #f9fafb;
   /* width: calc(100% - 250px) !important;
   height: calc(100vh - 61px) !important; */
 }
@@ -286,6 +286,8 @@ img{
   left: -12rem !important;
 }
 
+.PasswordUpdate,
+.TwoFactorAuthorization,
 .profileInformation {
   border-bottom: 1px solid #ced4da;
   padding-bottom: 3rem;
@@ -334,6 +336,8 @@ img{
   z-index: 0;
   left: 250px;
   top: 61px;
+  width: calc(100% - 250px);
+  overflow: hidden;
 }
 
 .div-navbar {

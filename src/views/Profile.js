@@ -7,7 +7,7 @@ class Profile extends Component
 {
     render() {
         return (
-            <div className="col-auto profile">
+            <div className="profile">
                 <div>
                     <ProfileInformation />
                 </div>

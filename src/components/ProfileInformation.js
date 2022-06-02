@@ -86,7 +86,7 @@ class ProfileInformation extends Component
         var user = JSON.parse(localStorage.getItem("userData"));
         const isLoading = this.state.isLoading;
         return(
-            <div className="profileInformation d-flex mt-3">
+            <div className="profileInformation d-flex mt-3 justify-content-around">
                 <div className="col-md-7 p-2 info">
                     <h3>Informacje o profilu</h3>
                     <p>Aktualizuj swoje informacje profilowe oraz adres e-mail.</p>

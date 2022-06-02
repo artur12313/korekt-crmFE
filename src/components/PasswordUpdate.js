@@ -98,7 +98,7 @@ class PasswordUpdate extends Component
     render(){
         const isLoading = this.state.isLoading;
         return(
-            <div className="PasswordUpdate d-flex">
+            <div className="PasswordUpdate d-flex justify-content-around">
                 <div className="col-md-7 p-2 info">
                     <h3>Aktualizacja Hasła</h3>
                     <p>Upewnij się, że Twoje konto używa długiego, losowego hasła, aby zachować bezpieczeństwo.</p>
