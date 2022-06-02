@@ -8,6 +8,7 @@ import Login from './views/auth/Login';
 import PageNotFound from './views/PageNotFound';
 import ProtectedRoutes from './ProtectedRoutes';
 import Profile from './views/Profile';
+import Categories from './views/warehouse/Categories';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<ProtectedRoutes />}>
           <Route path="/" element={<Dashboard />}/>
           <Route path="/profile" element={<Profile />} />
+          <Route path='/categories' element={<Categories />} />
         </Route>
       </Routes>
     </BrowserRouter>
