@@ -1,5 +1,6 @@
 import axios from "axios";
-import { Component } from "react";
+import { Component, Fragment } from "react";
+import ModalPopup from "../../components/modals/CategoryNew";
 
 class Categories extends Component
 {
@@ -10,9 +11,14 @@ class Categories extends Component
             msgErr: '',
             count: 1,
             isLoading: true,
-            categories: []
+            categories: [],
+            showModalPopup: false
         }
     }
+
+    isShowPopup = (status) => {  
+        this.setState({ showModalPopup: status });  
+      };  
 
     componentDidMount = async () => {
 
@@ -50,6 +56,23 @@ class Categories extends Component
                         <span className="sr-only">Wczytywanie...</span>
                 </div>
         ) :(
+            <div>
+                <div className="d-flex justify-content-between align-items-center p-4">
+                    <h1>Lista kategorii</h1>
+{/* 
+                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#nowa">Nowa kategoria</button> */}
+                    <Fragment>  
+                        <Fragment>  
+                            <div onClick={() => this.isShowPopup(true)}>  
+                                <button className="btn btn-primary">Nowa kategoria</button>  
+                            </div>  
+                        </Fragment>  
+                        <ModalPopup  
+                        showModalPopup={this.state.showModalPopup}  
+                        onPopupClose={this.isShowPopup}  
+                        ></ModalPopup>  
+                    </Fragment>  
+                </div>
                     <table className="table table-striped table-bordered" id="table">
         <thead className="thead-dark">
             <tr>
@@ -60,18 +83,20 @@ class Categories extends Component
         </thead>
         <tbody>
             {this.state.categories.map((category) => (
-                <tr>
-                <td>{count++}</td>
-                <td>{category.name}</td>
-                <td className="d-flex justify-content-center">
-                    <button type="button" className="btn btn-secondary btn-sm">Pokaż</button>
-                    <button type="button" className="btn btn-primary btn-sm mx-2" data-toggle="modal" data-target="#edit">Edytuj</button>
-                    <button type="button" className="btn btn-danger btn-sm">Usuń</button>
-                </td>
-            </tr>
+                <tr key={category.id}>
+                    <td>{count++}</td>
+                    <td>{category.name}</td>
+                    <td className="d-flex justify-content-center">
+                        <button type="button" className="btn btn-secondary btn-sm">Pokaż</button>
+                        <button type="button" className="btn btn-primary btn-sm mx-2" data-toggle="modal" data-target="#edit">Edytuj</button>
+                        <button type="button" className="btn btn-danger btn-sm">Usuń</button>
+                    </td>
+                </tr>
             ))}
         </tbody>
-    </table>)}        
+    </table>
+    </div>
+    )}        
             </div>
         );
     }
