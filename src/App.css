@@ -346,3 +346,7 @@ img{
   width: 100%;
   max-height: 61px;
 }
+
+.maxHeightContent {
+  height: calc(100vh - 61px) !important;
+}
