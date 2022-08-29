@@ -73,30 +73,33 @@ class Categories extends Component
                         ></ModalPopup>  
                     </Fragment>  
                 </div>
+                {this.state.categories.length > 0 ? (
                     <table className="table table-striped table-bordered" id="table">
-        <thead className="thead-dark">
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nazwa</th>
-            <th scope="col" className="text-center">Narzędzia</th>
-            </tr>
-        </thead>
-        <tbody>
-            {this.state.categories.map((category) => (
-                <tr key={category.id}>
-                    <td>{count++}</td>
-                    <td>{category.name}</td>
-                    <td className="d-flex justify-content-center">
-                        <button type="button" className="btn btn-secondary btn-sm">Pokaż</button>
-                        <button type="button" className="btn btn-primary btn-sm mx-2" data-toggle="modal" data-target="#edit">Edytuj</button>
-                        <button type="button" className="btn btn-danger btn-sm">Usuń</button>
-                    </td>
-                </tr>
-            ))}
-        </tbody>
-    </table>
-    </div>
-    )}        
+                        <thead className="thead-dark">
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nazwa</th>
+                            <th scope="col" className="text-center">Narzędzia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                {this.state.categories.map((category) => (
+                                    <tr key={category.id}>
+                                        <td>{count++}</td>
+                                        <td>{category.name}</td>
+                                        <td className="d-flex justify-content-center">
+                                            <button type="button" className="btn btn-secondary btn-sm">Pokaż</button>
+                                            <button type="button" className="btn btn-primary btn-sm mx-2" data-toggle="modal" data-target="#edit">Edytuj</button>
+                                            <button type="button" className="btn btn-danger btn-sm">Usuń</button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            
+                        </tbody>
+                    </table>
+                        ) : (<div className="alert alert-info">Brak kategorii</div>)}
+                    </div>
+                )}        
             </div>
         );
     }
