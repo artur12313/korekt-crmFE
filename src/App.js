@@ -9,6 +9,7 @@ import PageNotFound from './views/PageNotFound';
 import ProtectedRoutes from './ProtectedRoutes';
 import Profile from './views/Profile';
 import Categories from './views/warehouse/Categories';
+import Users from './views/users/Index';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Dashboard />}/>
           <Route path="/profile" element={<Profile />} />
           <Route path='/categories' element={<Categories />} />
+          <Route path='/users' element={<Users />} />
         </Route>
       </Routes>
     </BrowserRouter>

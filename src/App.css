@@ -350,3 +350,21 @@ img{
 .maxHeightContent {
   height: calc(100vh - 61px) !important;
 }
+
+.rounded {
+  border-radius: .25rem;
+}
+
+.badge {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  margin-right: .5rem;
+  padding: .125rem .625rem;
+  border: 1px solid;
+  border-radius: .25rem;
+}
+
+.badge-primary {
+  background-color: rgb(46, 139, 255);
+  color: rgb(30 66 159);
+}

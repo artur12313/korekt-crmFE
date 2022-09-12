@@ -67,6 +67,12 @@ class Sidebar extends Component
                     Archiwum
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/users">
+                    <i className="ti-user"></i>
+                    Użytkownicy
+                  </Link>
+                </li>
               </ul>
             </div>
           </nav>
