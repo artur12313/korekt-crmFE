@@ -1,9 +1,7 @@
-import { Component } from "react";
 
 
-class TwoFactorAuthorization extends Component
+function TwoFactorAuthorization()
 {
-    render(){
         return(
             <div className="TwoFactorAuthorization d-flex mt-3 justify-content-around">
                 <div className="col-md-7 p-2 info">
@@ -18,7 +16,6 @@ class TwoFactorAuthorization extends Component
                 </div>
             </div>
         );
-    }
 }
 
 export default TwoFactorAuthorization

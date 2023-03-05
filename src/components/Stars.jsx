@@ -1,8 +1,7 @@
-import { Component } from "react";
 
-class Stars extends Component
+
+function Stars()
 {
-    render(){
         return(
             <div className="stars">
                     <div className="star"></div>
@@ -57,7 +56,6 @@ class Stars extends Component
                     <div className="star"></div>
                     </div>
         );
-    }
 }
 
 export default Stars;
